@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Word Frequency Dashboard</title>
+  </head>
+  <body>
+    <h1>Word Frequency Dashboard</h1>
+    <p>
+      Welcome to the Word Frequency Dashboard! This project analyzes the text
+      from a given URL and displays the top 10 word frequencies. It utilizes
+      techniques such as web scraping, text preprocessing, and natural language
+      processing (NLP).
+    </p>
+    <form method="POST">
+      <label for="url">Enter URL:</label>
+      <input type="text" name="url" id="url" required />
+      <button type="submit">Submit</button>
+    </form>
+    {% if top_words %}
+    <h2>Top Words:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for word, frequency in top_words %}
+        <tr>
+          <td>{{ word }}</td>
+          <td>{{ frequency }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </body>
+</html>
